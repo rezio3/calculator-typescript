@@ -13,7 +13,6 @@ body {
 
 .calculator {
 	margin-top: 200px;
-	border: 1px solid rgb(43, 199, 247);
 	border-radius: 10px;
 	height: 390px;
 	width: 300px;
@@ -25,13 +24,16 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 
 	.result {
 		width: 90%;
 		height: 100px;
 		margin: 10px;
+		margin-top: 0;
 		// border: 1px solid rgb(89, 134, 143);
 		background-color: white;
+		border-radius: 5px;
 		display: flex;
 		justify-content: flex-end;
 		align-items: flex-end;
@@ -71,19 +73,13 @@ body {
 			}
 		}
 		button {
-			background: linear-gradient(
-				45deg,
-				rgb(133, 252, 242) 0%,
-				rgb(48, 233, 193) 100%
-			);
+			position: relative;
+			background: linear-gradient(45deg, #ffffff 0%, rgb(190, 190, 190) 100%);
 			border: none;
 			cursor: pointer;
 			font-size: 20px;
 			font-weight: bold;
 			color: rgb(43, 43, 43);
-		}
-		button:hover {
-			background-color: rgb(235, 219, 199);
 		}
 		.buttons-line {
 			width: 97%;
@@ -99,8 +95,18 @@ body {
 				margin: 2px;
 			}
 		}
-		button:hover button::after {
-			border-bottom: 5px solid red;
+		button::after {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+			background-color: rgba(255, 255, 255, 0.4);
+			opacity: 0;
+		}
+		button:hover::after {
+			opacity: 1;
 		}
 	}
 }
