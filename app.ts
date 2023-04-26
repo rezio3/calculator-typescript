@@ -31,6 +31,10 @@ const divideOperator = document.querySelector(
 	"#operator-divide"
 )! as HTMLButtonElement;
 
+const activeOperatorSpan = document.querySelector(
+	"#active-operator"
+)! as HTMLButtonElement;
+
 let firstNumber: number = 0;
 let secondNumber: number = 0;
 let operatorActive: string = "none";
@@ -65,6 +69,7 @@ addOperator.addEventListener("click", () => {
 		equalsTo();
 	}
 	operatorActive = "add";
+	activeOperatorSpan.innerHTML = "+";
 	firstNumber = +resultSpan.innerHTML;
 	clearSpan = true;
 });
@@ -73,27 +78,30 @@ subtractOperator.addEventListener("click", () => {
 	if (operatorActive !== "none") {
 		equalsTo();
 	}
+	operatorActive = "subtract";
+	activeOperatorSpan.innerHTML = "-";
 	firstNumber = +resultSpan.innerHTML;
 	clearSpan = true;
-	operatorActive = "subtract";
 });
 
 multiplyOperator.addEventListener("click", () => {
 	if (operatorActive !== "none") {
 		equalsTo();
 	}
+	operatorActive = "multiply";
+	activeOperatorSpan.innerHTML = "x";
 	firstNumber = +resultSpan.innerHTML;
 	clearSpan = true;
-	operatorActive = "multiply";
 });
 
 divideOperator.addEventListener("click", () => {
 	if (operatorActive !== "none") {
 		equalsTo();
 	}
+	operatorActive = "divide";
+	activeOperatorSpan.innerHTML = "/";
 	firstNumber = +resultSpan.innerHTML;
 	clearSpan = true;
-	operatorActive = "divide";
 });
 
 equalOperator.addEventListener("click", () => {
@@ -122,6 +130,7 @@ function equalsTo() {
 		resultSpan.innerHTML = finalResult.toString();
 		firstNumber = +resultSpan.innerHTML;
 		secondNumber = 0;
+		activeOperatorSpan.innerHTML = "";
 	}
 }
 

@@ -7,6 +7,7 @@ var equalOperator = document.querySelector("#operator-equal");
 var subtractOperator = document.querySelector("#operator-subtract");
 var multiplyOperator = document.querySelector("#operator-multiply");
 var divideOperator = document.querySelector("#operator-divide");
+var activeOperatorSpan = document.querySelector("#active-operator");
 var firstNumber = 0;
 var secondNumber = 0;
 var operatorActive = "none";
@@ -43,6 +44,7 @@ addOperator.addEventListener("click", function () {
         equalsTo();
     }
     operatorActive = "add";
+    activeOperatorSpan.innerHTML = "+";
     firstNumber = +resultSpan.innerHTML;
     clearSpan = true;
 });
@@ -50,25 +52,28 @@ subtractOperator.addEventListener("click", function () {
     if (operatorActive !== "none") {
         equalsTo();
     }
+    operatorActive = "subtract";
+    activeOperatorSpan.innerHTML = "-";
     firstNumber = +resultSpan.innerHTML;
     clearSpan = true;
-    operatorActive = "subtract";
 });
 multiplyOperator.addEventListener("click", function () {
     if (operatorActive !== "none") {
         equalsTo();
     }
+    operatorActive = "multiply";
+    activeOperatorSpan.innerHTML = "x";
     firstNumber = +resultSpan.innerHTML;
     clearSpan = true;
-    operatorActive = "multiply";
 });
 divideOperator.addEventListener("click", function () {
     if (operatorActive !== "none") {
         equalsTo();
     }
+    operatorActive = "divide";
+    activeOperatorSpan.innerHTML = "/";
     firstNumber = +resultSpan.innerHTML;
     clearSpan = true;
-    operatorActive = "divide";
 });
 equalOperator.addEventListener("click", function () {
     equalsTo();
@@ -95,6 +100,7 @@ function equalsTo() {
         resultSpan.innerHTML = finalResult.toString();
         firstNumber = +resultSpan.innerHTML;
         secondNumber = 0;
+        activeOperatorSpan.innerHTML = "";
     }
 }
 clearButton.addEventListener("click", function () {
