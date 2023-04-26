@@ -20,7 +20,12 @@ numbers.forEach(function (button) {
                 resultSpan.innerHTML += button.innerHTML;
             }
             else {
-                resultSpan.innerHTML += button.innerHTML;
+                if (resultSpan.innerHTML === "0") {
+                    resultSpan.innerHTML = button.innerHTML;
+                }
+                else {
+                    resultSpan.innerHTML += button.innerHTML;
+                }
             }
         }
         else {

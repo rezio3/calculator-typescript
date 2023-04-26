@@ -22,6 +22,7 @@ const equalOperator = document.querySelector(
 const subtractOperator = document.querySelector(
 	"#operator-subtract"
 )! as HTMLButtonElement;
+
 const multiplyOperator = document.querySelector(
 	"#operator-multiply"
 )! as HTMLButtonElement;
@@ -43,7 +44,11 @@ numbers.forEach((button) => {
 				resultSpan.innerHTML = "";
 				resultSpan.innerHTML += button.innerHTML;
 			} else {
-				resultSpan.innerHTML += button.innerHTML;
+				if (resultSpan.innerHTML === "0") {
+					resultSpan.innerHTML = button.innerHTML;
+				} else {
+					resultSpan.innerHTML += button.innerHTML;
+				}
 			}
 		} else {
 			if (resultSpan.textContent !== "0") {
