@@ -11,6 +11,13 @@ const resultSpan: HTMLSpanElement = document.getElementById(
 	"result-span"
 )! as HTMLSpanElement;
 
+const addOperator = document.querySelector(
+	"#operator-add"
+)! as HTMLButtonElement;
+
+let firstNumber = 0;
+let secondNumber = 0;
+
 numbers.forEach((button) => {
 	button.addEventListener("click", () => {
 		if (resultSpan.textContent !== "0") {
@@ -18,11 +25,17 @@ numbers.forEach((button) => {
 		} else {
 			resultSpan.innerHTML = button.innerHTML;
 		}
+		firstNumber = +resultSpan.innerHTML;
 	});
+});
+
+addOperator.addEventListener("click", () => {
+	console.log("plus clicked. Number displayed is: " + resultSpan.innerHTML);
 });
 
 clearButton.addEventListener("click", () => {
 	resultSpan.innerHTML = "0";
+	firstNumber = +resultSpan.innerHTML;
 });
 
 backspaceButton.addEventListener("click", () => {
@@ -36,4 +49,5 @@ backspaceButton.addEventListener("click", () => {
 			resultSpan.innerHTML = "0";
 		}
 	}
+	firstNumber = +resultSpan.innerHTML;
 });
