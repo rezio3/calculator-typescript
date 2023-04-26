@@ -15,6 +15,10 @@ const addOperator = document.querySelector(
 	"#operator-add"
 )! as HTMLButtonElement;
 
+const equalOperator = document.querySelector(
+	"#operator-equal"
+)! as HTMLButtonElement;
+
 let firstNumber: number = 0;
 let secondNumber: number = 0;
 let operatorActive: boolean = false;
@@ -44,7 +48,17 @@ addOperator.addEventListener("click", () => {
 	firstNumber = +resultSpan.innerHTML;
 	operatorActive = true;
 	clearResult = true;
-	console.log("plus clicked. Number displayed is: " + resultSpan.innerHTML);
+});
+
+equalOperator.addEventListener("click", () => {
+	if (operatorActive) {
+		operatorActive = false;
+		secondNumber = +resultSpan.innerHTML;
+		const finalResult: number = firstNumber + secondNumber;
+		resultSpan.innerHTML = finalResult.toString();
+		firstNumber = +resultSpan.innerHTML;
+		secondNumber = 0;
+	}
 });
 
 clearButton.addEventListener("click", () => {
