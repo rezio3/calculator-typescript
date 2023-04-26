@@ -18,19 +18,32 @@ const addOperator = document.querySelector(
 let firstNumber: number = 0;
 let secondNumber: number = 0;
 let operatorActive: boolean = false;
+let clearResult: boolean = false;
 
 numbers.forEach((button) => {
 	button.addEventListener("click", () => {
-		if (resultSpan.textContent !== "0") {
-			resultSpan.innerHTML += button.innerHTML;
+		if (operatorActive) {
+			if (clearResult) {
+				clearResult = false;
+				resultSpan.innerHTML = "";
+				resultSpan.innerHTML += button.innerHTML;
+			} else {
+				resultSpan.innerHTML += button.innerHTML;
+			}
 		} else {
-			resultSpan.innerHTML = button.innerHTML;
+			if (resultSpan.textContent !== "0") {
+				resultSpan.innerHTML += button.innerHTML;
+			} else {
+				resultSpan.innerHTML = button.innerHTML;
+			}
 		}
 	});
 });
 
 addOperator.addEventListener("click", () => {
 	firstNumber = +resultSpan.innerHTML;
+	operatorActive = true;
+	clearResult = true;
 	console.log("plus clicked. Number displayed is: " + resultSpan.innerHTML);
 });
 

@@ -5,18 +5,34 @@ var resultSpan = document.getElementById("result-span");
 var addOperator = document.querySelector("#operator-add");
 var firstNumber = 0;
 var secondNumber = 0;
+var operatorActive = false;
+var clearResult = false;
 numbers.forEach(function (button) {
     button.addEventListener("click", function () {
-        if (resultSpan.textContent !== "0") {
-            resultSpan.innerHTML += button.innerHTML;
+        if (operatorActive) {
+            if (clearResult) {
+                clearResult = false;
+                resultSpan.innerHTML = "";
+                resultSpan.innerHTML += button.innerHTML;
+            }
+            else {
+                resultSpan.innerHTML += button.innerHTML;
+            }
         }
         else {
-            resultSpan.innerHTML = button.innerHTML;
+            if (resultSpan.textContent !== "0") {
+                resultSpan.innerHTML += button.innerHTML;
+            }
+            else {
+                resultSpan.innerHTML = button.innerHTML;
+            }
         }
     });
 });
 addOperator.addEventListener("click", function () {
     firstNumber = +resultSpan.innerHTML;
+    operatorActive = true;
+    clearResult = true;
     console.log("plus clicked. Number displayed is: " + resultSpan.innerHTML);
 });
 clearButton.addEventListener("click", function () {
