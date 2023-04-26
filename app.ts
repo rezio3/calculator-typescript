@@ -22,13 +22,13 @@ const equalOperator = document.querySelector(
 let firstNumber: number = 0;
 let secondNumber: number = 0;
 let operatorActive: boolean = false;
-let clearResult: boolean = false;
+let clearSpan: boolean = false;
 
 numbers.forEach((button) => {
 	button.addEventListener("click", () => {
 		if (operatorActive) {
-			if (clearResult) {
-				clearResult = false;
+			if (clearSpan) {
+				clearSpan = false;
 				resultSpan.innerHTML = "";
 				resultSpan.innerHTML += button.innerHTML;
 			} else {
@@ -47,7 +47,7 @@ numbers.forEach((button) => {
 addOperator.addEventListener("click", () => {
 	firstNumber = +resultSpan.innerHTML;
 	operatorActive = true;
-	clearResult = true;
+	clearSpan = true;
 });
 
 equalOperator.addEventListener("click", () => {

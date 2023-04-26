@@ -7,12 +7,12 @@ var equalOperator = document.querySelector("#operator-equal");
 var firstNumber = 0;
 var secondNumber = 0;
 var operatorActive = false;
-var clearResult = false;
+var clearSpan = false;
 numbers.forEach(function (button) {
     button.addEventListener("click", function () {
         if (operatorActive) {
-            if (clearResult) {
-                clearResult = false;
+            if (clearSpan) {
+                clearSpan = false;
                 resultSpan.innerHTML = "";
                 resultSpan.innerHTML += button.innerHTML;
             }
@@ -33,7 +33,7 @@ numbers.forEach(function (button) {
 addOperator.addEventListener("click", function () {
     firstNumber = +resultSpan.innerHTML;
     operatorActive = true;
-    clearResult = true;
+    clearSpan = true;
 });
 equalOperator.addEventListener("click", function () {
     if (operatorActive) {
