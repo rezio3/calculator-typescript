@@ -94,3 +94,9 @@ body {
 .calculator .buttons-container button:hover::after {
   opacity: 1;
 }
+
+@media (max-width: 500px) {
+  .calculator {
+    margin-top: 50px;
+  }
+}
