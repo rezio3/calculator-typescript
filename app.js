@@ -92,6 +92,10 @@ function equalsTo() {
 }
 clearButton.addEventListener("click", function () {
     resultSpan.innerHTML = "0";
+    firstNumber = 0;
+    secondNumber = 0;
+    operatorActive = "none";
+    clearSpan = false;
 });
 backspaceButton.addEventListener("click", function () {
     if (resultSpan.textContent !== "0") {
