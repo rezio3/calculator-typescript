@@ -147,11 +147,11 @@ function equalsTo() {
 function checkIfResultTooLong() {
 	const resultLength: number = resultSpan.innerHTML.length;
 	if (resultLength > 12) {
-		const newDisplayArr = resultSpan.innerHTML.split("");
-		for (let i = resultLength; i > 12; i--) {
+		const newDisplayArr: string[] = resultSpan.innerHTML.split("");
+		for (let i: number = resultLength; i > 12; i--) {
 			newDisplayArr.pop();
 		}
-		const newDisplayString = newDisplayArr.join("");
+		const newDisplayString: string = newDisplayArr.join("");
 		resultSpan.innerHTML = newDisplayString;
 	}
 }
@@ -166,10 +166,10 @@ clearButton.addEventListener("click", () => {
 
 backspaceButton.addEventListener("click", () => {
 	if (resultSpan.textContent !== "0") {
-		const newDisplayArr = resultSpan.innerHTML.split("");
+		const newDisplayArr: string[] = resultSpan.innerHTML.split("");
 		if (newDisplayArr.length > 1) {
 			newDisplayArr.pop();
-			const newDisplayString = newDisplayArr.join("");
+			const newDisplayString: string = newDisplayArr.join("");
 			resultSpan.innerHTML = newDisplayString;
 		} else {
 			resultSpan.innerHTML = "0";
