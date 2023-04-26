@@ -8,6 +8,7 @@ var subtractOperator = document.querySelector("#operator-subtract");
 var multiplyOperator = document.querySelector("#operator-multiply");
 var divideOperator = document.querySelector("#operator-divide");
 var activeOperatorSpan = document.querySelector("#active-operator");
+var dot = document.querySelector("#dot");
 var firstNumber = 0;
 var secondNumber = 0;
 var operatorActive = "none";

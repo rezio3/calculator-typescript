@@ -35,6 +35,8 @@ const activeOperatorSpan = document.querySelector(
 	"#active-operator"
 )! as HTMLButtonElement;
 
+const dot = document.querySelector("#dot")! as HTMLButtonElement;
+
 let firstNumber: number = 0;
 let secondNumber: number = 0;
 let operatorActive: string = "none";
