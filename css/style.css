@@ -38,8 +38,13 @@ body {
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
 }
-.calculator .buttons-container .clear {
-  width: 95%;
+.calculator .buttons-container .clear-buttons {
+  display: flex;
+  width: 97%;
+}
+.calculator .buttons-container .clear-buttons .clear,
+.calculator .buttons-container .clear-buttons .backspace {
+  width: 50%;
   height: 50px;
   margin: 5px;
   margin-top: 10px;

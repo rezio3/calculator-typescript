@@ -4,6 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+		/>
 		<link rel="stylesheet" href="./css/style.css" />
 		<title>JR-Calculator</title>
 	</head>
@@ -13,7 +17,12 @@
 				<span class="result-span" id="result-span">0</span>
 			</div>
 			<div class="buttons-container">
-				<button class="clear" id="clear">AC</button>
+				<div class="clear-buttons">
+					<button class="clear" id="clear">AC</button>
+					<button class="backspace" id="backspace">
+						<span class="material-symbols-outlined"> keyboard_backspace </span>
+					</button>
+				</div>
 				<div class="buttons-line">
 					<button class="number" id="number7">7</button>
 					<button class="number" id="number8">8</button>
