@@ -72,17 +72,19 @@ function equalsTo() {
     if (operatorActive !== "none") {
         var finalResult = 0;
         secondNumber = +resultSpan.innerHTML;
-        if (operatorActive === "add") {
-            finalResult = firstNumber + secondNumber;
-        }
-        else if (operatorActive === "subtract") {
-            finalResult = firstNumber - secondNumber;
-        }
-        else if (operatorActive === "multiply") {
-            finalResult = firstNumber * secondNumber;
-        }
-        else if (operatorActive === "divide") {
-            finalResult = firstNumber / secondNumber;
+        switch (operatorActive) {
+            case "add":
+                finalResult = firstNumber + secondNumber;
+                break;
+            case "subtract":
+                finalResult = firstNumber - secondNumber;
+                break;
+            case "multiply":
+                finalResult = firstNumber * secondNumber;
+                break;
+            case "divide":
+                finalResult = firstNumber / secondNumber;
+                break;
         }
         operatorActive = "none";
         resultSpan.innerHTML = finalResult.toString();
