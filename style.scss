@@ -1,8 +1,8 @@
 body {
 	background: linear-gradient(
-		90deg,
+		0deg,
 		rgb(194, 194, 194) 30%,
-		rgb(50, 221, 255) 100%
+		rgb(116, 205, 223) 100%
 	);
 	display: flex;
 	justify-content: center;
@@ -110,6 +110,7 @@ body {
 			top: 0;
 			background-color: rgba(255, 255, 255, 0.4);
 			opacity: 0;
+			transition: 0.1s ease-out;
 		}
 		button:hover::after {
 			opacity: 1;
