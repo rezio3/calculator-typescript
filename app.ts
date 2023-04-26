@@ -15,8 +15,9 @@ const addOperator = document.querySelector(
 	"#operator-add"
 )! as HTMLButtonElement;
 
-let firstNumber = 0;
-let secondNumber = 0;
+let firstNumber: number = 0;
+let secondNumber: number = 0;
+let operatorActive: boolean = false;
 
 numbers.forEach((button) => {
 	button.addEventListener("click", () => {
@@ -25,17 +26,16 @@ numbers.forEach((button) => {
 		} else {
 			resultSpan.innerHTML = button.innerHTML;
 		}
-		firstNumber = +resultSpan.innerHTML;
 	});
 });
 
 addOperator.addEventListener("click", () => {
+	firstNumber = +resultSpan.innerHTML;
 	console.log("plus clicked. Number displayed is: " + resultSpan.innerHTML);
 });
 
 clearButton.addEventListener("click", () => {
 	resultSpan.innerHTML = "0";
-	firstNumber = +resultSpan.innerHTML;
 });
 
 backspaceButton.addEventListener("click", () => {
@@ -49,5 +49,4 @@ backspaceButton.addEventListener("click", () => {
 			resultSpan.innerHTML = "0";
 		}
 	}
-	firstNumber = +resultSpan.innerHTML;
 });
