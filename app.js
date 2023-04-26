@@ -4,13 +4,16 @@ var backspaceButton = document.querySelector("#backspace");
 var resultSpan = document.getElementById("result-span");
 var addOperator = document.querySelector("#operator-add");
 var equalOperator = document.querySelector("#operator-equal");
+var subtractOperator = document.querySelector("#operator-subtract");
+var multiplyOperator = document.querySelector("#operator-multiply");
+var divideOperator = document.querySelector("#operator-divide");
 var firstNumber = 0;
 var secondNumber = 0;
-var operatorActive = false;
+var operatorActive = "none";
 var clearSpan = false;
 numbers.forEach(function (button) {
     button.addEventListener("click", function () {
-        if (operatorActive) {
+        if (operatorActive !== "none") {
             if (clearSpan) {
                 clearSpan = false;
                 resultSpan.innerHTML = "";
@@ -31,20 +34,62 @@ numbers.forEach(function (button) {
     });
 });
 addOperator.addEventListener("click", function () {
+    if (operatorActive !== "none") {
+        equalsTo();
+    }
+    operatorActive = "add";
     firstNumber = +resultSpan.innerHTML;
-    operatorActive = true;
     clearSpan = true;
 });
+subtractOperator.addEventListener("click", function () {
+    if (operatorActive !== "none") {
+        equalsTo();
+    }
+    firstNumber = +resultSpan.innerHTML;
+    clearSpan = true;
+    operatorActive = "subtract";
+});
+multiplyOperator.addEventListener("click", function () {
+    if (operatorActive !== "none") {
+        equalsTo();
+    }
+    firstNumber = +resultSpan.innerHTML;
+    clearSpan = true;
+    operatorActive = "multiply";
+});
+divideOperator.addEventListener("click", function () {
+    if (operatorActive !== "none") {
+        equalsTo();
+    }
+    firstNumber = +resultSpan.innerHTML;
+    clearSpan = true;
+    operatorActive = "divide";
+});
 equalOperator.addEventListener("click", function () {
-    if (operatorActive) {
-        operatorActive = false;
+    equalsTo();
+});
+function equalsTo() {
+    if (operatorActive !== "none") {
+        var finalResult = 0;
         secondNumber = +resultSpan.innerHTML;
-        var finalResult = firstNumber + secondNumber;
+        if (operatorActive === "add") {
+            finalResult = firstNumber + secondNumber;
+        }
+        else if (operatorActive === "subtract") {
+            finalResult = firstNumber - secondNumber;
+        }
+        else if (operatorActive === "multiply") {
+            finalResult = firstNumber * secondNumber;
+        }
+        else if (operatorActive === "divide") {
+            finalResult = firstNumber / secondNumber;
+        }
+        operatorActive = "none";
         resultSpan.innerHTML = finalResult.toString();
         firstNumber = +resultSpan.innerHTML;
         secondNumber = 0;
     }
-});
+}
 clearButton.addEventListener("click", function () {
     resultSpan.innerHTML = "0";
 });

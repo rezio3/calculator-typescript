@@ -19,14 +19,25 @@ const equalOperator = document.querySelector(
 	"#operator-equal"
 )! as HTMLButtonElement;
 
+const subtractOperator = document.querySelector(
+	"#operator-subtract"
+)! as HTMLButtonElement;
+const multiplyOperator = document.querySelector(
+	"#operator-multiply"
+)! as HTMLButtonElement;
+
+const divideOperator = document.querySelector(
+	"#operator-divide"
+)! as HTMLButtonElement;
+
 let firstNumber: number = 0;
 let secondNumber: number = 0;
-let operatorActive: boolean = false;
+let operatorActive: string = "none";
 let clearSpan: boolean = false;
 
 numbers.forEach((button) => {
 	button.addEventListener("click", () => {
-		if (operatorActive) {
+		if (operatorActive !== "none") {
 			if (clearSpan) {
 				clearSpan = false;
 				resultSpan.innerHTML = "";
@@ -45,21 +56,64 @@ numbers.forEach((button) => {
 });
 
 addOperator.addEventListener("click", () => {
+	if (operatorActive !== "none") {
+		equalsTo();
+	}
+	operatorActive = "add";
 	firstNumber = +resultSpan.innerHTML;
-	operatorActive = true;
 	clearSpan = true;
 });
 
+subtractOperator.addEventListener("click", () => {
+	if (operatorActive !== "none") {
+		equalsTo();
+	}
+	firstNumber = +resultSpan.innerHTML;
+	clearSpan = true;
+	operatorActive = "subtract";
+});
+
+multiplyOperator.addEventListener("click", () => {
+	if (operatorActive !== "none") {
+		equalsTo();
+	}
+	firstNumber = +resultSpan.innerHTML;
+	clearSpan = true;
+	operatorActive = "multiply";
+});
+
+divideOperator.addEventListener("click", () => {
+	if (operatorActive !== "none") {
+		equalsTo();
+	}
+	firstNumber = +resultSpan.innerHTML;
+	clearSpan = true;
+	operatorActive = "divide";
+});
+
 equalOperator.addEventListener("click", () => {
-	if (operatorActive) {
-		operatorActive = false;
+	equalsTo();
+});
+
+function equalsTo() {
+	if (operatorActive !== "none") {
+		let finalResult: number = 0;
 		secondNumber = +resultSpan.innerHTML;
-		const finalResult: number = firstNumber + secondNumber;
+		if (operatorActive === "add") {
+			finalResult = firstNumber + secondNumber;
+		} else if (operatorActive === "subtract") {
+			finalResult = firstNumber - secondNumber;
+		} else if (operatorActive === "multiply") {
+			finalResult = firstNumber * secondNumber;
+		} else if (operatorActive === "divide") {
+			finalResult = firstNumber / secondNumber;
+		}
+		operatorActive = "none";
 		resultSpan.innerHTML = finalResult.toString();
 		firstNumber = +resultSpan.innerHTML;
 		secondNumber = 0;
 	}
-});
+}
 
 clearButton.addEventListener("click", () => {
 	resultSpan.innerHTML = "0";
