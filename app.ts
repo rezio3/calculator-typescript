@@ -2,6 +2,8 @@ const numbers = document.querySelectorAll(
 	".number"
 )! as NodeListOf<HTMLButtonElement>;
 
+const clearButton = document.querySelector("#clear")! as HTMLButtonElement;
+
 const resultSpan: HTMLSpanElement = document.getElementById(
 	"result-span"
 )! as HTMLSpanElement;
@@ -14,4 +16,8 @@ numbers.forEach((button) => {
 			resultSpan.innerHTML = button.innerHTML;
 		}
 	});
+});
+
+clearButton.addEventListener("click", () => {
+	resultSpan.innerHTML = "0";
 });

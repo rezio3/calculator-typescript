@@ -1,4 +1,5 @@
 var numbers = document.querySelectorAll(".number");
+var clearButton = document.querySelector("#clear");
 var resultSpan = document.getElementById("result-span");
 numbers.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -9,4 +10,7 @@ numbers.forEach(function (button) {
             resultSpan.innerHTML = button.innerHTML;
         }
     });
+});
+clearButton.addEventListener("click", function () {
+    resultSpan.innerHTML = "0";
 });
