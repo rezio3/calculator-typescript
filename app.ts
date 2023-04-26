@@ -63,6 +63,7 @@ numbers.forEach((button) => {
 				resultSpan.innerHTML = button.innerHTML;
 			}
 		}
+		checkIfResultTooLong();
 	});
 });
 
@@ -106,6 +107,12 @@ divideOperator.addEventListener("click", () => {
 	clearSpan = true;
 });
 
+dot.addEventListener("click", () => {
+	if (resultSpan.innerHTML.indexOf(".") === -1) {
+		resultSpan.innerHTML += ".";
+	}
+});
+
 equalOperator.addEventListener("click", () => {
 	equalsTo();
 });
@@ -133,6 +140,19 @@ function equalsTo() {
 		firstNumber = +resultSpan.innerHTML;
 		secondNumber = 0;
 		activeOperatorSpan.innerHTML = "";
+	}
+	checkIfResultTooLong();
+}
+
+function checkIfResultTooLong() {
+	const resultLength: number = resultSpan.innerHTML.length;
+	if (resultLength > 12) {
+		const newDisplayArr = resultSpan.innerHTML.split("");
+		for (let i = resultLength; i > 12; i--) {
+			newDisplayArr.pop();
+		}
+		const newDisplayString = newDisplayArr.join("");
+		resultSpan.innerHTML = newDisplayString;
 	}
 }
 

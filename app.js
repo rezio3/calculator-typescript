@@ -38,6 +38,7 @@ numbers.forEach(function (button) {
                 resultSpan.innerHTML = button.innerHTML;
             }
         }
+        checkIfResultTooLong();
     });
 });
 addOperator.addEventListener("click", function () {
@@ -76,6 +77,11 @@ divideOperator.addEventListener("click", function () {
     firstNumber = +resultSpan.innerHTML;
     clearSpan = true;
 });
+dot.addEventListener("click", function () {
+    if (resultSpan.innerHTML.indexOf(".") === -1) {
+        resultSpan.innerHTML += ".";
+    }
+});
 equalOperator.addEventListener("click", function () {
     equalsTo();
 });
@@ -102,6 +108,18 @@ function equalsTo() {
         firstNumber = +resultSpan.innerHTML;
         secondNumber = 0;
         activeOperatorSpan.innerHTML = "";
+    }
+    checkIfResultTooLong();
+}
+function checkIfResultTooLong() {
+    var resultLength = resultSpan.innerHTML.length;
+    if (resultLength > 12) {
+        var newDisplayArr = resultSpan.innerHTML.split("");
+        for (var i = resultLength; i > 12; i--) {
+            newDisplayArr.pop();
+        }
+        var newDisplayString = newDisplayArr.join("");
+        resultSpan.innerHTML = newDisplayString;
     }
 }
 clearButton.addEventListener("click", function () {
