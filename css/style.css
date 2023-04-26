@@ -73,7 +73,8 @@ body {
   justify-content: space-between;
 }
 .calculator .buttons-container .buttons-line .number,
-.calculator .buttons-container .buttons-line .operator {
+.calculator .buttons-container .buttons-line .operator,
+.calculator .buttons-container .buttons-line .dot {
   width: 70px;
   height: 45px;
   margin: 5px;
