@@ -127,6 +127,7 @@ clearButton.addEventListener("click", function () {
     firstNumber = 0;
     secondNumber = 0;
     operatorActive = "none";
+    activeOperatorSpan.innerHTML = "";
     clearSpan = false;
 });
 backspaceButton.addEventListener("click", function () {

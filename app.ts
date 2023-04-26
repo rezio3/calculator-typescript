@@ -161,6 +161,7 @@ clearButton.addEventListener("click", () => {
 	firstNumber = 0;
 	secondNumber = 0;
 	operatorActive = "none";
+	activeOperatorSpan.innerHTML = "";
 	clearSpan = false;
 });
 
