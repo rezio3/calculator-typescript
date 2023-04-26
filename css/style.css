@@ -49,6 +49,12 @@ body {
   margin: 5px;
   margin-top: 10px;
 }
+.calculator .buttons-container .clear-buttons .clear span,
+.calculator .buttons-container .clear-buttons .backspace span {
+  margin-top: 4px;
+  font-size: 25px;
+  font-weight: bold;
+}
 .calculator .buttons-container button {
   background-color: rgb(255, 242, 225);
   border: none;
