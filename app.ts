@@ -59,7 +59,6 @@ operators.forEach((operator) => {
 	operator.addEventListener("click", (o) => {
 		let name = (o.target! as HTMLButtonElement).name;
 		let symbol = (o.target! as HTMLButtonElement).innerHTML;
-		console.log(symbol);
 		operatorActive = name;
 		activeOperatorSpan.innerHTML = symbol;
 		firstNumber = +resultSpan.innerHTML;

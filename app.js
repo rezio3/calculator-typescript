@@ -42,7 +42,6 @@ operators.forEach(function (operator) {
     operator.addEventListener("click", function (o) {
         var name = o.target.name;
         var symbol = o.target.innerHTML;
-        console.log(symbol);
         operatorActive = name;
         activeOperatorSpan.innerHTML = symbol;
         firstNumber = +resultSpan.innerHTML;
