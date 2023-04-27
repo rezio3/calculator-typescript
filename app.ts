@@ -15,22 +15,6 @@ const equalOperator = document.querySelector(
 	"#operator-equal"
 )! as HTMLButtonElement;
 
-const addOperator = document.querySelector(
-	"#operator-add"
-)! as HTMLButtonElement;
-
-const subtractOperator = document.querySelector(
-	"#operator-subtract"
-)! as HTMLButtonElement;
-
-const multiplyOperator = document.querySelector(
-	"#operator-multiply"
-)! as HTMLButtonElement;
-
-const divideOperator = document.querySelector(
-	"#operator-divide"
-)! as HTMLButtonElement;
-
 const operators = document.querySelectorAll(
 	".operator"
 )! as NodeListOf<HTMLButtonElement>;
