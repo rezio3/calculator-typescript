@@ -14,9 +14,9 @@ body {
   width: 300px;
   background: linear-gradient(90deg, rgb(73, 88, 87) 0%, rgb(89, 134, 143) 100%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .calculator .result {
   width: 90%;
@@ -43,8 +43,8 @@ body {
 .calculator .buttons-container {
   width: 96%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   background: linear-gradient(90deg, rgb(73, 88, 87) 0%, rgb(89, 134, 143) 100%);
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
