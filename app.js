@@ -2,11 +2,12 @@ var numbers = document.querySelectorAll(".number");
 var clearButton = document.querySelector("#clear");
 var backspaceButton = document.querySelector("#backspace");
 var resultSpan = document.getElementById("result-span");
-var addOperator = document.querySelector("#operator-add");
 var equalOperator = document.querySelector("#operator-equal");
+var addOperator = document.querySelector("#operator-add");
 var subtractOperator = document.querySelector("#operator-subtract");
 var multiplyOperator = document.querySelector("#operator-multiply");
 var divideOperator = document.querySelector("#operator-divide");
+var operators = document.querySelectorAll(".operator");
 var activeOperatorSpan = document.querySelector("#active-operator");
 var dot = document.querySelector("#dot");
 var firstNumber = 0;
@@ -41,42 +42,17 @@ numbers.forEach(function (button) {
         checkIfResultTooLong();
     });
 });
-addOperator.addEventListener("click", function () {
-    if (operatorActive !== "none") {
-        equalsTo();
-    }
-    operatorActive = "add";
-    activeOperatorSpan.innerHTML = "+";
-    useOperator();
+operators.forEach(function (operator) {
+    operator.addEventListener("click", function (o) {
+        var name = o.target.name;
+        var symbol = o.target.innerHTML;
+        console.log(symbol);
+        operatorActive = name;
+        activeOperatorSpan.innerHTML = symbol;
+        firstNumber = +resultSpan.innerHTML;
+        clearSpan = true;
+    });
 });
-subtractOperator.addEventListener("click", function () {
-    if (operatorActive !== "none") {
-        equalsTo();
-    }
-    operatorActive = "subtract";
-    activeOperatorSpan.innerHTML = "-";
-    useOperator();
-});
-multiplyOperator.addEventListener("click", function () {
-    if (operatorActive !== "none") {
-        equalsTo();
-    }
-    operatorActive = "multiply";
-    activeOperatorSpan.innerHTML = "x";
-    useOperator();
-});
-divideOperator.addEventListener("click", function () {
-    if (operatorActive !== "none") {
-        equalsTo();
-    }
-    operatorActive = "divide";
-    activeOperatorSpan.innerHTML = "/";
-    useOperator();
-});
-function useOperator() {
-    firstNumber = +resultSpan.innerHTML;
-    clearSpan = true;
-}
 dot.addEventListener("click", function () {
     if (resultSpan.innerHTML.indexOf(".") === -1) {
         resultSpan.innerHTML += ".";

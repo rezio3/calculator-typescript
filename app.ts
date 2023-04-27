@@ -11,12 +11,12 @@ const resultSpan: HTMLSpanElement = document.getElementById(
 	"result-span"
 )! as HTMLSpanElement;
 
-const addOperator = document.querySelector(
-	"#operator-add"
-)! as HTMLButtonElement;
-
 const equalOperator = document.querySelector(
 	"#operator-equal"
+)! as HTMLButtonElement;
+
+const addOperator = document.querySelector(
+	"#operator-add"
 )! as HTMLButtonElement;
 
 const subtractOperator = document.querySelector(
@@ -30,6 +30,10 @@ const multiplyOperator = document.querySelector(
 const divideOperator = document.querySelector(
 	"#operator-divide"
 )! as HTMLButtonElement;
+
+const operators = document.querySelectorAll(
+	".operator"
+)! as NodeListOf<HTMLButtonElement>;
 
 const activeOperatorSpan = document.querySelector(
 	"#active-operator"
@@ -67,46 +71,17 @@ numbers.forEach((button) => {
 	});
 });
 
-addOperator.addEventListener("click", () => {
-	if (operatorActive !== "none") {
-		equalsTo();
-	}
-	operatorActive = "add";
-	activeOperatorSpan.innerHTML = "+";
-	useOperator();
+operators.forEach((operator) => {
+	operator.addEventListener("click", (o) => {
+		let name = (o.target! as HTMLButtonElement).name;
+		let symbol = (o.target! as HTMLButtonElement).innerHTML;
+		console.log(symbol);
+		operatorActive = name;
+		activeOperatorSpan.innerHTML = symbol;
+		firstNumber = +resultSpan.innerHTML;
+		clearSpan = true;
+	});
 });
-
-subtractOperator.addEventListener("click", () => {
-	if (operatorActive !== "none") {
-		equalsTo();
-	}
-	operatorActive = "subtract";
-	activeOperatorSpan.innerHTML = "-";
-	useOperator();
-});
-
-multiplyOperator.addEventListener("click", () => {
-	if (operatorActive !== "none") {
-		equalsTo();
-	}
-	operatorActive = "multiply";
-	activeOperatorSpan.innerHTML = "x";
-	useOperator();
-});
-
-divideOperator.addEventListener("click", () => {
-	if (operatorActive !== "none") {
-		equalsTo();
-	}
-	operatorActive = "divide";
-	activeOperatorSpan.innerHTML = "/";
-	useOperator();
-});
-
-function useOperator() {
-	firstNumber = +resultSpan.innerHTML;
-	clearSpan = true;
-}
 
 dot.addEventListener("click", () => {
 	if (resultSpan.innerHTML.indexOf(".") === -1) {
