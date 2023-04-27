@@ -73,8 +73,7 @@ addOperator.addEventListener("click", () => {
 	}
 	operatorActive = "add";
 	activeOperatorSpan.innerHTML = "+";
-	firstNumber = +resultSpan.innerHTML;
-	clearSpan = true;
+	useOperator();
 });
 
 subtractOperator.addEventListener("click", () => {
@@ -83,8 +82,7 @@ subtractOperator.addEventListener("click", () => {
 	}
 	operatorActive = "subtract";
 	activeOperatorSpan.innerHTML = "-";
-	firstNumber = +resultSpan.innerHTML;
-	clearSpan = true;
+	useOperator();
 });
 
 multiplyOperator.addEventListener("click", () => {
@@ -93,8 +91,7 @@ multiplyOperator.addEventListener("click", () => {
 	}
 	operatorActive = "multiply";
 	activeOperatorSpan.innerHTML = "x";
-	firstNumber = +resultSpan.innerHTML;
-	clearSpan = true;
+	useOperator();
 });
 
 divideOperator.addEventListener("click", () => {
@@ -103,9 +100,13 @@ divideOperator.addEventListener("click", () => {
 	}
 	operatorActive = "divide";
 	activeOperatorSpan.innerHTML = "/";
+	useOperator();
+});
+
+function useOperator() {
 	firstNumber = +resultSpan.innerHTML;
 	clearSpan = true;
-});
+}
 
 dot.addEventListener("click", () => {
 	if (resultSpan.innerHTML.indexOf(".") === -1) {

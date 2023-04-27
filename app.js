@@ -47,8 +47,7 @@ addOperator.addEventListener("click", function () {
     }
     operatorActive = "add";
     activeOperatorSpan.innerHTML = "+";
-    firstNumber = +resultSpan.innerHTML;
-    clearSpan = true;
+    useOperator();
 });
 subtractOperator.addEventListener("click", function () {
     if (operatorActive !== "none") {
@@ -56,8 +55,7 @@ subtractOperator.addEventListener("click", function () {
     }
     operatorActive = "subtract";
     activeOperatorSpan.innerHTML = "-";
-    firstNumber = +resultSpan.innerHTML;
-    clearSpan = true;
+    useOperator();
 });
 multiplyOperator.addEventListener("click", function () {
     if (operatorActive !== "none") {
@@ -65,8 +63,7 @@ multiplyOperator.addEventListener("click", function () {
     }
     operatorActive = "multiply";
     activeOperatorSpan.innerHTML = "x";
-    firstNumber = +resultSpan.innerHTML;
-    clearSpan = true;
+    useOperator();
 });
 divideOperator.addEventListener("click", function () {
     if (operatorActive !== "none") {
@@ -74,9 +71,12 @@ divideOperator.addEventListener("click", function () {
     }
     operatorActive = "divide";
     activeOperatorSpan.innerHTML = "/";
+    useOperator();
+});
+function useOperator() {
     firstNumber = +resultSpan.innerHTML;
     clearSpan = true;
-});
+}
 dot.addEventListener("click", function () {
     if (resultSpan.innerHTML.indexOf(".") === -1) {
         resultSpan.innerHTML += ".";
