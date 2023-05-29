@@ -6,9 +6,11 @@
 	"name": "calculator-typescript",
 	"source": "index.html",
 	"version": "1.0.0",
-	"main": "app.js",
 	"scripts": {
-		"start": "parcel index.html"
+		"start": "parcel",
+		"build": "parcel build --public-url .",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
 	},
 	"repository": {
 		"type": "git",
